@@ -8,7 +8,15 @@ import {
     Checkbox,
 } from '@chakra-ui/react'
 
-const Form = () => {
+const Form = ({
+    accountName,
+    accountValue,
+    isPaid,
+    setAccName,
+    setAccValue,
+    setIsPaid,
+    handleSubmit,
+}) => {
     return (
         <Flex
             px="15px"
@@ -32,22 +40,36 @@ const Form = () => {
                 id="nomeDaConta"
             >
                 <FormLabel>Nome da conta</FormLabel>
-                <Input></Input>
+                <Input
+                    value={accountName}
+                    onChange={event => setAccName(event.target.value)}
+                />
             </FormControl>
 
             <FormControl
                 id="valorDaConta"
             >
                 <FormLabel>Valor da conta</FormLabel>
-                <Input></Input>
+                <Input
+                    type="number"
+                    value={accountValue}
+                    onChange={event => setAccValue(event.target.value)}
+                />
             </FormControl>
 
-            <Checkbox>Pago?</Checkbox>
+            <Checkbox
+                value={isPaid}
+                onChange={event => setIsPaid(event.target.checked)}
+            >
+                Pago?
+            </Checkbox>
 
             <Button
                 height="40px"
                 borderRadius="2"
                 background="#9FD7FF"
+
+                onClick={handleSubmit}
             >
                 ADICIONAR
             </Button>

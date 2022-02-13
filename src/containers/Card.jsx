@@ -1,7 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react'
 import { FaTimes } from "react-icons/fa"
 
-const Card = () => {
+const Card = ({ accName, accValue, onClick, doubleClick, isPaid }) => {
     return (
         <Flex
             background="#E0E0E0"
@@ -16,23 +16,29 @@ const Card = () => {
             py="3px"
 
             position="relative"
+
+            onDoubleClick={doubleClick}
         >
             <Text
                 fontSize="14px"
                 fontWeight={700}
+                textDecoration={isPaid ? "line-through red 2px" : ""}
             >
-                Cartão de crédito
+                {accName}
             </Text>
             <Text
                 fontSize="14px"
                 color="#272727"
+                textDecoration={isPaid ? "line-through red 2px" : ""}
             >
-                R$ 516
+                R$ {accValue}
             </Text>
 
             <Flex
                 position="absolute"
                 right={1}
+
+                onClick={onClick}
             >
                 <FaTimes color="red" />
             </Flex>

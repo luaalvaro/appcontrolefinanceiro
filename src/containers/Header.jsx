@@ -1,6 +1,6 @@
 import { Flex, Button, Image } from "@chakra-ui/react"
 
-const Header = () => {
+const Header = ({ toggleForm, formState }) => {
     return (
         <Flex
             background="#323232"
@@ -20,8 +20,10 @@ const Header = () => {
                 height="30px"
                 borderRadius="2"
                 background="#9FD7FF"
+
+                onClick={toggleForm}
             >
-                ADICIONAR
+                {formState ? 'FECHAR' : 'ADICIONAR'}
             </Button>
         </Flex>
     )
