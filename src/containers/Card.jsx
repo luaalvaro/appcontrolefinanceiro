@@ -38,6 +38,8 @@ const Card = ({ accName, accValue, onClick, doubleClick, isPaid }) => {
                 position="absolute"
                 right={1}
 
+                cursor="pointer"
+
                 onClick={onClick}
             >
                 <FaTimes color="red" />

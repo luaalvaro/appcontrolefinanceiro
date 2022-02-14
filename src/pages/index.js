@@ -53,6 +53,9 @@ export default function Home() {
         duration: 9000,
         isClosable: true,
       })
+      setAccountName('')
+      setAccountValue(0)
+      setIsPaid(false)
     } catch (error) {
       console.error(error)
       toast({
@@ -105,6 +108,13 @@ export default function Home() {
         .update({ isPaid: !isPaid })
         .eq('id', idQuery)
         .single()
+
+      toast({
+        title: 'Conta ATUALIZADA com sucesso',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
 
       const newData = data.map(item => {
         if (item.id === idQuery) {
